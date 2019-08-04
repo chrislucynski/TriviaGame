@@ -1,0 +1,60 @@
+body {
+    background-image: url('/assets/images/zion.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 7em;
+    padding-top: 15px;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Courgette', cursive;
+    font-size: 2em;
+}
+
+ol {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5em;
+}
+
+#container {
+    background-color: rgb(56, 56, 112);
+    color: white;
+    padding: 0 35px 30px 35px;
+    width: 75%;
+    margin: auto;
+}
+
+#time-remaining {
+    font-family: 'Share Tech Mono', monospace;
+    text-align: center;
+    font-size: 2em;
+}
+
+/* .active { 
+    display: block;
+} */
+
+.hide {
+    display: none;
+}
+
+.correct-answer-display {
+    color: green;
+    font-size: 2em;
+}
+
+.incorrect-answer-display {
+    color: red;
+
+}
+
+#start-btn {
+    font-size: 1.5em;
+    font-family: 'Lobster', cursive;
+    padding: 15px;
+}
