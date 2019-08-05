@@ -2,6 +2,9 @@
 var timeRemaining = 5;
 var countDown;
 var currentDiv = 0;
+var correctGuesses = 0;
+var incorrectGuesses = 0;
+var unanswered = 0;
 
 // time count down function
 function finalCountDown(){
@@ -37,6 +40,7 @@ function timesUp (){
         $('.correct-answer').removeClass('correct-answer-display')
         }, 4 * 1000);
     }
+    unanswered++
     currentDiv++
     console.log(currentDiv)
     nextQuestion()
@@ -46,6 +50,8 @@ function timesUp (){
 $('#start-btn').click(function(){
     // hide the start button
     $('#start-btn').addClass("hide")
+    // hide the info
+    $('#info').addClass("hide")
     // add "active" class to the first question.
     $('#question-1').removeClass("hide")
     // begin timer
@@ -66,6 +72,7 @@ $('li').click(function(){
 
 // If the li clicked is incorrect, run incorrect function
 function incorrectAnswer (){
+    incorrectGuesses++
     // alert user they got the answer incorrectly.
     alert('Wrong answer!')
     resetCountDown();
@@ -82,6 +89,7 @@ function incorrectAnswer (){
 
 // if the li clicked is correct, run correct function
 function correctAnswer (){
+    correctGuesses++
     // alert user they got the answer correctly.
     alert('Correct answer!')
     resetCountDown();
@@ -98,32 +106,50 @@ function correctAnswer (){
 
 function nextQuestion() {
     console.log(currentDiv)
-    if(currentDiv = 0){
+    if(currentDiv === 0){
         $('.questions').addClass('hide') 
-    } else if(currentDiv = 1){
+    } else if(currentDiv === 1){
         setTimeout(() => {
             finalCountDown() 
             $('.questions').addClass('hide') 
             $('#question-2').removeClass('hide') 
         }, 4000)
-    } else if (currentDiv = 2){
+    } else if (currentDiv === 2){
         setTimeout(() => {
             finalCountDown() 
             $('.questions').addClass('hide')
             $('#question-3').removeClass('hide')
         }, 4000)
-    } else if (currentDiv = 3){
+    } else if (currentDiv === 3){
         setTimeout(() => {
             finalCountDown() 
             $('#question-3').addClass('hide')
             $('#question-4').removeClass('hide')
         }, 4000)
-    } else if (currentDiv = 4){
+    } else if (currentDiv === 4){
         setTimeout(() => {
             finalCountDown() 
             $('#question-4').addClass('hide')
             $('#question-5').removeClass('hide')
         }, 4000)
+    } else if (currentDiv === 5){
+        setTimeout(() => {
+            finalCountDown() 
+            $('#question-5').addClass('hide')
+            $('#question-6').removeClass('hide')
+        }, 4000)
+    } else if (currentDiv === 6){
+        setTimeout(() => {
+            finalCountDown() 
+            $('#question-6').addClass('hide')
+            $('#question-7').removeClass('hide')
+        }, 4000)
+    } else if (currentDiv === 7){
+        $('#question-7').addClass('hide')
+        $('.game-over').removeClass('hide')
+        $('#correct-end').text(correctGuesses)
+        $('#incorrect-end').text(incorrectGuesses)
+        $('#unanswered-end').text(unanswered)
     }
 }
 

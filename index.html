@@ -20,10 +20,12 @@
 <body>
     <div id="container">
         <h1>Trivia time!</h1>
-        <h3>This is a Trivia game all about Chris. 
-            This is your chance to show how much you know me.
-            You might even learn something about me along the way.
-        </h3>
+        <div id="info">
+            <h3>This is a Trivia game all about Chris. 
+                This is your chance to show how much you know me.
+                You might even learn something about me along the way.
+            </h3>
+        </div>
         <br>
         <p id="time-remaining">Time Remaining: <span id="time-slot">5</span></p>
         <button id="start-btn">Start!</button>
@@ -110,6 +112,13 @@
                 <li class="incorrect-answer">Sandy</li>
                 <li class="incorrect-answer">West Valley</li>
             </ol>
+        </div>
+        <div class="game-over hide">
+            <h3>Game over! Here's how you did...</h3>
+            <h2>Correct answers: <span id="correct-end"></span></h2>
+            <h2>Wrong answers: <span id="incorrect-end"></span></h2>
+            <h2>Unanswered questions: <span id="unanswered-end"></span></h2>
+            <h3>Thanks for playing!</h3>
         </div>
 
     </div>
