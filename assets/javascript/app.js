@@ -58,6 +58,21 @@ $('#start-btn').click(function(){
     finalCountDown()
 });
 
+$('#reset-btn').click(function(){
+    currentDiv = 1;
+    correctGuesses = 0;
+    incorrectGuesses = 0;
+    unanswered = 0;
+    // hide the start button
+    $('.questions').addClass("hide")
+    // add "active" class to the first question.
+    $('#question-1').removeClass("hide")
+    // hide game-over screen
+    $('.game-over').addClass('hide')
+    // begin timer
+    finalCountDown()
+});
+
 // click on the answer. 
 $('li').click(function(){
     currentDiv++
@@ -72,7 +87,6 @@ $('li').click(function(){
 
 // If the li clicked is incorrect, run incorrect function
 function incorrectAnswer (){
-    incorrectGuesses++
     // alert user they got the answer incorrectly.
     alert('Wrong answer!')
     resetCountDown();
@@ -81,15 +95,15 @@ function incorrectAnswer (){
     $('.correct-answer').addClass('correct-answer-display')
     // show answers for 4 seconds, then remove previous classes
     setTimeout(() => {
-    $('.incorrect-answer').removeClass('incorrect-answer-display')
-    $('.correct-answer').removeClass('correct-answer-display')
+        $('.incorrect-answer').removeClass('incorrect-answer-display')
+        $('.correct-answer').removeClass('correct-answer-display')
     }, 4000);
+    incorrectGuesses++
     nextQuestion()
 }
 
 // if the li clicked is correct, run correct function
 function correctAnswer (){
-    correctGuesses++
     // alert user they got the answer correctly.
     alert('Correct answer!')
     resetCountDown();
@@ -98,9 +112,10 @@ function correctAnswer (){
     $('.correct-answer').addClass('correct-answer-display')
     // show answers for 4 seconds, then remove previous classes
     setTimeout(() => {
-    $('.incorrect-answer').removeClass('incorrect-answer-display')
-    $('.correct-answer').removeClass('correct-answer-display')
+        $('.incorrect-answer').removeClass('incorrect-answer-display')
+        $('.correct-answer').removeClass('correct-answer-display')
     }, 4000); 
+    correctGuesses++
     nextQuestion()
 }
 
