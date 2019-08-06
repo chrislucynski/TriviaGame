@@ -1,5 +1,5 @@
 // count down timer for each question.
-var timeRemaining = 5;
+var timeRemaining = 7;
 var countDown;
 var currentDiv = 0;
 var correctGuesses = 0;
@@ -8,10 +8,10 @@ var unanswered = 0;
 
 // time count down function
 function finalCountDown(){
-    timeRemaining = 5;
+    timeRemaining = 7;
     countDown = setInterval(function (){
-    timeRemaining--
-    $('#time-slot').text(timeRemaining)
+        timeRemaining--
+        $('#time-slot').text(timeRemaining)
         if(timeRemaining === 0){
             timesUp();
         }
@@ -20,7 +20,7 @@ function finalCountDown(){
 
 // time reset function 
 function resetCountDown() {
-    timeRemaining = 5;
+    timeRemaining = 7;
     $('#time-slot').text(timeRemaining)
     clearInterval(countDown)
 }
@@ -30,16 +30,16 @@ function timesUp (){
     if(timeRemaining === 0){
         // alert user they got the answer correctly.
         alert('You ran out of time!')
-        resetCountDown()
         // apply incorrect/correct-answer-display classes so they are styled.
         $('.incorrect-answer').addClass('incorrect-answer-display')
         $('.correct-answer').addClass('correct-answer-display')
         // show answers for 4 seconds, then remove previous classes
         setTimeout(() => {
-        $('.incorrect-answer').removeClass('incorrect-answer-display')
-        $('.correct-answer').removeClass('correct-answer-display')
+            $('.incorrect-answer').removeClass('incorrect-answer-display')
+            $('.correct-answer').removeClass('correct-answer-display')
         }, 4 * 1000);
     }
+    resetCountDown()
     unanswered++
     currentDiv++
     console.log(currentDiv)
@@ -58,6 +58,7 @@ $('#start-btn').click(function(){
     finalCountDown()
 });
 
+// reset button
 $('#reset-btn').click(function(){
     currentDiv = 1;
     correctGuesses = 0;
