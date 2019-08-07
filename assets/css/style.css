@@ -55,6 +55,11 @@ ol {
     padding: 15px;
 }
 
+li:hover {
+    font-size: 1.5em;
+    color: aqua;
+}
+
 #correct-end {
     color: green;
 }
