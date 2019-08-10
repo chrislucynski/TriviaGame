@@ -76,7 +76,6 @@ $('#reset-btn').click(function(){
 
 // click on the answer. 
 $('li').click(function(){
-    currentDiv++
     console.log(currentDiv)
     var clicked = this.className
     if(clicked === 'incorrect-answer'){
@@ -99,6 +98,7 @@ function incorrectAnswer (){
         $('.incorrect-answer').removeClass('incorrect-answer-display')
         $('.correct-answer').removeClass('correct-answer-display')
     }, 4000);
+    currentDiv++
     incorrectGuesses++
     nextQuestion()
 }
@@ -116,6 +116,7 @@ function correctAnswer (){
         $('.incorrect-answer').removeClass('incorrect-answer-display')
         $('.correct-answer').removeClass('correct-answer-display')
     }, 4000); 
+    currentDiv++
     correctGuesses++
     nextQuestion()
 }
