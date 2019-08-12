@@ -42,7 +42,6 @@ function timesUp (){
     resetCountDown()
     unanswered++
     currentDiv++
-    console.log(currentDiv)
     nextQuestion()
 }
 
@@ -76,7 +75,6 @@ $('#reset-btn').click(function(){
 
 // click on the answer. 
 $('li').click(function(){
-    console.log(currentDiv)
     var clicked = this.className
     if(clicked === 'incorrect-answer'){
         incorrectAnswer();
@@ -122,7 +120,6 @@ function correctAnswer (){
 }
 
 function nextQuestion() {
-    console.log(currentDiv)
     if(currentDiv === 0){
         $('.questions').addClass('hide') 
     } else if(currentDiv === 1){
